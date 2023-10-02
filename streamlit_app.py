@@ -32,7 +32,7 @@ try:
   if not fruit_choice:
     streamlit.error("Please provide fruit information")
   else:
-    if streamlit.button("Get fruit list"):
+    if streamlit.button("Insert fruit list"):
         my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
         streamlit.text("The fruit load list contains:")
         my_data_rows=insert_fruit_list_data(fruit_choice)
