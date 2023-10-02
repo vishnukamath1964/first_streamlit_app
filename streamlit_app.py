@@ -36,7 +36,7 @@ try:
 except URLError as e:
     streamlit.error()
     
-def insert_fruit_list_data():
+def insert_fruit_list_data(fruit_choice):
     with my_cnx.cursor() as my_cur:
         my_cur.execute("insert into fruit_load_list values('from streamlit')")
         return my_cur.fetchall()
