@@ -32,7 +32,7 @@ try:
         my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
         streamlit.text("The fruit load list contains:")
         my_data_rows=insert_fruit_list_data(fruit_choice)
-        streamlit.dataframe(my_data_rows)
+        streamlit.text(my_data_rows)
 except URLError as e:
     streamlit.error()
     
