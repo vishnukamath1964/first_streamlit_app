@@ -28,6 +28,6 @@ my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
 my_data_row = my_cur.fetchall()
 streamlit.text("The fruit load list contains:")
-streamlit.text(my_data_row)
+streamlit.dataframe(my_data_row)
 
 
