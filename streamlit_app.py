@@ -34,7 +34,7 @@ except URLError as e:
     streamlit.error()
     
 def get_fruit_list_data():
-    with my_cnx.cursor():
+    with my_cnx.cursor() as my_cur:
         my_cur.execute("select * from fruit_load_list")
         return my_cur.fetchall()
 if streamlit.button("Get fruit list"):
