@@ -25,8 +25,8 @@ def get_fruit_vice_data(this_fruit_info):
     #streamlit.dataframe(fruityvice_normalized)
 def insert_fruit_list_data(fruit_choice):
     with my_cnx.cursor() as my_cur:
-        my_cur.execute("insert into fruit_load_list values(fruit_choice)")
-        return my_cur.fetchall()
+        my_cur.execute("insert into fruit_load_list values('"+fruit_choice+"')")
+        return "Thanks for adding"+fruit_choice
 try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
