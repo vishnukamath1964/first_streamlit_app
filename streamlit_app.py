@@ -23,6 +23,10 @@ def get_fruit_vice_data(this_fruit_info):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
     fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
     #streamlit.dataframe(fruityvice_normalized)
+def insert_fruit_list_data(fruit_choice):
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("insert into fruit_load_list values('from streamlit')")
+        return my_cur.fetchall()
 try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
@@ -36,10 +40,7 @@ try:
 except URLError as e:
     streamlit.error()
     
-def insert_fruit_list_data(fruit_choice):
-    with my_cnx.cursor() as my_cur:
-        my_cur.execute("insert into fruit_load_list values('from streamlit')")
-        return my_cur.fetchall()
+
 
 
 
